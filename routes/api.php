@@ -24,9 +24,12 @@ Route::group([
     Route::post('register','AuthApiController@register');
 });
 
-Route::groupe([
+Route::group([
     'prefix'=>'places',
     'middleware'=>'auth:api'
 ], static function(){
-    
+    Route::get('/','PlacesController@index');
+    Route::post('/','PlacesController@setPlace');
+    Route::get('/{id}','PlacesController@place');
 });
+
