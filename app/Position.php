@@ -8,4 +8,5 @@ class Position extends Model
 {
     protected $fillable = ['id','name','description','position'];
     public $timestamps = false;
+    protected $table = 'places';
 }

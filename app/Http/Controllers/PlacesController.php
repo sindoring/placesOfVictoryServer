@@ -12,7 +12,7 @@ class PlacesController extends Controller
         return response()->json($positions, 200);
     }
 
-    public function place(Request $request,$id){
+    public function getPlace(Request $request,$id){
         $position = Position::find($id);
         return response()->json($position, 200);
     }

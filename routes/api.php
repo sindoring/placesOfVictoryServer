@@ -20,16 +20,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group([
     'prefix'=>'auth'
 ],static function(){
-    Route::post('login','AuthApiController@login');
-    Route::post('register','AuthApiController@register');
+    Route::post('login','AuthApiController@login')->name('login');
+    Route::post('register','AuthApiController@register')->name('register');
 });
 
 Route::group([
     'prefix'=>'places',
     'middleware'=>'auth:api'
 ], static function(){
-    Route::get('/','PlacesController@index');
-    Route::post('/','PlacesController@setPlace');
-    Route::get('/{id}','PlacesController@place');
+    Route::get('','PlacesController@index');
+    Route::post('','PlacesController@setPlace');
+    Route::get('{id}','PlacesController@getPlace');
 });
 
